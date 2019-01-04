@@ -301,7 +301,8 @@ createStudyPopulation <- function(plpData,
 limitCovariatesToPopulation <- function(covariates, rowIds) {
   idx <- !is.na(ffbase::ffmatch(covariates$rowId, rowIds))
   if(sum(idx)!=0){
-    covariates <- covariates[ffbase::ffwhich(idx, idx == TRUE), ]
+    covariates <- covariates[ffbase::ffwhich(idx, idx == TRUE)[1:length(ffbase::ffwhich(idx, idx == TRUE))],]
+    covariates <- as.ffdf(covariates)
   }else{
     stop('No covariates')
   }

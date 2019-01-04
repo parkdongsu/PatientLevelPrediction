@@ -145,7 +145,7 @@ runPlp <- function(population, plpData,  minCovariateFraction = 0.001, normalize
 
   if(!missing(save)){
     warning('save has been replaced with saveDirectory - please use this input from now on')
-    if(NULL(saveDirectory)){saveDirectory <- save}
+    if(is.null(saveDirectory)){saveDirectory <- save}
   }
   
   if(missing(verbosity)){
